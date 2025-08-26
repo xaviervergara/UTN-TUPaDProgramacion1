@@ -108,38 +108,42 @@ elif 6 <= magnitud_usuario < 7:
 elif magnitud_usuario >= 7:
     print("Extremo (Puede causar graves daños a gran escala)")
     
-# 10) Escribir un programa que pregunte al usuario en cuál hemisferio se encuentra (N/S), qué mes 
-# del año es y qué día es. El programa deberá utilizar esa información para imprimir por pantalla 
+# 10) Escribir un programa que pregunte al usuario en cuál hemisferio se encuentra (N/S), qué mes
+# del año es y qué día es. El programa deberá utilizar esa información para imprimir por pantalla
 # si el usuario se encuentra en otoño, invierno, primavera o verano.
 
-hemisferio_usuario = input("Ingrese el hemisferio donde se encuentra: N/S").lower()
-mes_usuario = int(input("Ingrese el mes actual en formato numerico"))
-dia_usuario = int(input("Ingrese el día actual en formato numerico"))
+dia_usuario = int(input("Ingrese el día actual en formato numerico: 1, 2, 3...: "))
+mes_usuario = int(input("Ingrese el mes actual en formato numerico: 1, 2, 3...: "))
 
-periodo_1 = ((mes_usuario == 12 and dia_usuario >= 21) or mes_usuario == 1 or mes_usuario == 2 or (mes_usuario == 3 and dia_usuario <= 20))     # 21 dic hasta 20 marzo
-periodo_2 = ((mes_usuario == 3 and dia_usuario >= 21) or mes_usuario == 4 or mes_usuario == 5 or (mes_usuario == 6 and dia_usuario <= 20))      # 21 marzo hasta 20 jun
-periodo_3 = ((mes_usuario == 6 and dia_usuario >= 21) or mes_usuario == 7 or mes_usuario == 8 or (mes_usuario == 9 and dia_usuario <= 20))      # 21 jun hasta 20 spt
-periodo_4 = ((mes_usuario == 9 and dia_usuario >= 21) or mes_usuario == 10 or mes_usuario == 11 or (mes_usuario == 12 and dia_usuario <= 20))   # 21 spt hasta 20 dic
+if (not (1 <= dia_usuario <= 31)) or (not (1 <= mes_usuario <= 12)): # Validacion de dias, entre 1 y 31 (incluidos), meses, entre 1 y 12 (incluidos)
+  print("Error: día o mes inválido")
+elif (dia_usuario == 31 and mes_usuario in (4, 6, 9, 11, 2)) or (dia_usuario == 30 and mes_usuario == 2): # Validacion fecha incoherente: si el dia es 31, no puede ser abril, junio, septiembre, etc..
+  print("El día no corresponde al mes ingresado")
+else:
+  hemisferio_usuario = input("Ingrese el hemisferio donde se encuentra: N/S: ").lower() # Una vez validada la fecha preguntamos el hemisferio
 
-# print(periodo_4)
+  periodo_1 = ((mes_usuario == 12 and dia_usuario >= 21) or mes_usuario == 1 or mes_usuario == 2 or (mes_usuario == 3 and dia_usuario <= 20))     # 21 dic hasta 20 marzo
+  periodo_2 = ((mes_usuario == 3 and dia_usuario >= 21) or mes_usuario == 4 or mes_usuario == 5 or (mes_usuario == 6 and dia_usuario <= 20))      # 21 marzo hasta 20 jun
+  periodo_3 = ((mes_usuario == 6 and dia_usuario >= 21) or mes_usuario == 7 or mes_usuario == 8 or (mes_usuario == 9 and dia_usuario <= 20))      # 21 jun hasta 20 spt
+  periodo_4 = ((mes_usuario == 9 and dia_usuario >= 21) or mes_usuario == 10 or mes_usuario == 11 or (mes_usuario == 12 and dia_usuario <= 20))   # 21 spt hasta 20 dic
 
-if periodo_1:
+  if periodo_1:
     if hemisferio_usuario == "n":
         print("Invierno")
     else:
         print("Verano")
-elif periodo_2:
+  elif periodo_2:
     if hemisferio_usuario == "n":
         print("Primavera")
     else:
         print("Otoño")
-elif periodo_3:
+  elif periodo_3:
     if hemisferio_usuario == "n":
         print("Verano")
     else:
         print("Invierno")
-elif periodo_4:
+  elif periodo_4:
     if hemisferio_usuario == "n":
         print("Otoño")
     else:
-        print("Primavera")    
+        print("Primavera")
