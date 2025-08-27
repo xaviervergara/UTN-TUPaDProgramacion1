@@ -121,29 +121,31 @@ elif (dia_usuario == 31 and mes_usuario in (4, 6, 9, 11, 2)) or (dia_usuario == 
   print("El día no corresponde al mes ingresado")
 else:
   hemisferio_usuario = input("Ingrese el hemisferio donde se encuentra: N/S: ").lower() # Una vez validada la fecha preguntamos el hemisferio
+  if not (hemisferio_usuario in ("n", "s")): # Validacion hemisferio, usé "in" para no hacer not (hesmisferio_usuario == "n" or hesmisferio_usuario == "s"), es mas abreviado.
+    print("Error: Hemisferio incorrecto")
+  else:    
+    periodo_1 = ((mes_usuario == 12 and dia_usuario >= 21) or mes_usuario == 1 or mes_usuario == 2 or (mes_usuario == 3 and dia_usuario <= 20))     # 21 dic hasta 20 marzo
+    periodo_2 = ((mes_usuario == 3 and dia_usuario >= 21) or mes_usuario == 4 or mes_usuario == 5 or (mes_usuario == 6 and dia_usuario <= 20))      # 21 marzo hasta 20 jun
+    periodo_3 = ((mes_usuario == 6 and dia_usuario >= 21) or mes_usuario == 7 or mes_usuario == 8 or (mes_usuario == 9 and dia_usuario <= 20))      # 21 jun hasta 20 spt
+    periodo_4 = ((mes_usuario == 9 and dia_usuario >= 21) or mes_usuario == 10 or mes_usuario == 11 or (mes_usuario == 12 and dia_usuario <= 20))   # 21 spt hasta 20 dic
 
-  periodo_1 = ((mes_usuario == 12 and dia_usuario >= 21) or mes_usuario == 1 or mes_usuario == 2 or (mes_usuario == 3 and dia_usuario <= 20))     # 21 dic hasta 20 marzo
-  periodo_2 = ((mes_usuario == 3 and dia_usuario >= 21) or mes_usuario == 4 or mes_usuario == 5 or (mes_usuario == 6 and dia_usuario <= 20))      # 21 marzo hasta 20 jun
-  periodo_3 = ((mes_usuario == 6 and dia_usuario >= 21) or mes_usuario == 7 or mes_usuario == 8 or (mes_usuario == 9 and dia_usuario <= 20))      # 21 jun hasta 20 spt
-  periodo_4 = ((mes_usuario == 9 and dia_usuario >= 21) or mes_usuario == 10 or mes_usuario == 11 or (mes_usuario == 12 and dia_usuario <= 20))   # 21 spt hasta 20 dic
-
-  if periodo_1:
-    if hemisferio_usuario == "n":
-        print("Invierno")
-    else:
-        print("Verano")
-  elif periodo_2:
-    if hemisferio_usuario == "n":
-        print("Primavera")
-    else:
-        print("Otoño")
-  elif periodo_3:
-    if hemisferio_usuario == "n":
-        print("Verano")
-    else:
-        print("Invierno")
-  elif periodo_4:
-    if hemisferio_usuario == "n":
-        print("Otoño")
-    else:
-        print("Primavera")
+    if periodo_1:
+      if hemisferio_usuario == "n":
+          print("Invierno")
+      else:
+          print("Verano")
+    elif periodo_2:
+      if hemisferio_usuario == "n":
+          print("Primavera")
+      else:
+          print("Otoño")
+    elif periodo_3:
+      if hemisferio_usuario == "n":
+          print("Verano")
+      else:
+          print("Invierno")
+    elif periodo_4:
+      if hemisferio_usuario == "n":
+          print("Otoño")
+      else:
+          print("Primavera")
