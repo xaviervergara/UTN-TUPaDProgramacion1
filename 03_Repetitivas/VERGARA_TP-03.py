@@ -93,24 +93,16 @@ impares = 0
 positivos = 0
 negativos = 0
  
-for i in range(100):
+for i in range(2):
     numero_usuario =  int(input("Ingrese numero"))   
     if numero_usuario % 2 == 0:
-        if numero_usuario > 0:
-            pares +=1
-            positivos += 1
-        else: 
-            pares += 1
-            negativos += 1  
-    elif numero_usuario % 2 != 0:
-        if numero_usuario > 0:
-            impares += 1
-            positivos += 1
-        else:
-            impares += 1
-            negativos += 1
- 
-print(f"Pares: {pares}\nImpares: {impares}\nPositivos: {positivos}\nNegativos: {negativos}\n")      
+      pares += 1
+    else: impares += 1
+    if numero_usuario > 0:
+        positivos += 1
+    else: negativos += 1
+         
+print(f"Pares: {pares}\nImpares: {impares}\nPositivos: {positivos}\nNegativos: {negativos}\n")  
 
 # 9) Elabora un programa que permita al usuario ingresar 100 números enteros y luego calcule la 
 # media de esos valores. (Nota: puedes probar el programa con una cantidad menor, pero debe 
