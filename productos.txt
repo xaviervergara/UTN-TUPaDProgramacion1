@@ -1,4 +1,4 @@
 Teclado,$50,27
 Mouse,$60,39
 Camara,$70,44
-asd,asd,asd
+reloj,$123,1000

@@ -21,12 +21,6 @@ with open("productos.txt", "r") as file:
 # los productos, le pida al usuario que ingrese un nuevo producto (nombre, precio, 
 # cantidad) y lo agregue al archivo sin borrar el contenido existente.
 
-with open("productos.txt", "r") as file:
-    contenido = file.readlines() # contenido es una lista cuyos elementos se corresponden con cada una de las filas del archivo original
-    for filas in contenido: 
-        columnas = filas.strip().split(",")
-        print(f"Producto: {columnas[0]} | Precio: {columnas[1]} | Cantidad: {columnas[2]}")
-
 producto_usuario = input("Ingrese un producto en el sgte formato: (nombre, precio, cantidad): ")        
 
 with open("productos.txt", "a") as file:
@@ -76,3 +70,8 @@ if existe == False:
 # 6. Guardar los productos actualizados: Después de haber leído, buscado o agregado 
 # productos, sobrescribir el archivo productos.txt escribiendo nuevamente todos los 
 # productos actualizados desde la lista.
+
+with open("productos.txt", "w") as file:
+    for producto in productos:
+        fila = ",".join(producto.values()) # notese como permite trabajar con un type dict list y no tener que usar list(producto.values()) -investigar
+        file.write(fila + "\n")
